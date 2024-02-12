@@ -6,6 +6,8 @@ import me.jodfedlet.thewine.modules.customer.dto.in.CreateCustomerInDto;
 import me.jodfedlet.thewine.modules.customer.dto.out.CustomerOutDto;
 import me.jodfedlet.thewine.modules.customer.entity.Customer;
 import me.jodfedlet.thewine.modules.customer.repository.CustomerRepository;
+import me.jodfedlet.thewine.shared.exceptions.NotFoundException;
+import me.jodfedlet.thewine.shared.exceptions.ResourceExistsException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -25,7 +27,7 @@ public class CustomerServiceImpl implements CustomerService {
     public CustomerOutDto create(CreateCustomerInDto customerDto) {
 
         if (customerRepository.findByName(customerDto.name()).isPresent()) {
-            throw new RuntimeException("Customer already exists");
+            throw new ResourceExistsException("Customer already exists");
         }
 
         Customer customer = CustomerMapper.toEntity(customerDto);
@@ -43,7 +45,7 @@ public class CustomerServiceImpl implements CustomerService {
         this.findById(id);
 
         if (customerRepository.findByName(customerDto.name()).isPresent()) {
-            throw new RuntimeException("Customer already exists");
+            throw new ResourceExistsException("Customer already exists");
         }
 
         Customer customer = CustomerMapper.toEntity(customerDto);
@@ -66,7 +68,7 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public CustomerOutDto findById(String id) {
        Customer customer = customerRepository.findById(id)
-               .orElseThrow(() -> new RuntimeException("Customer not found"));
+               .orElseThrow(() -> new NotFoundException("Customer not found"));
        return CustomerMapper.toDto(customer);
     }
 

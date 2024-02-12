@@ -4,7 +4,6 @@ package me.jodfedlet.thewine.modules.customer;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import io.swagger.v3.oas.annotations.tags.Tags;
 import me.jodfedlet.thewine.modules.customer.dto.in.CreateCustomerInDto;
 import me.jodfedlet.thewine.modules.customer.dto.out.CustomerOutDto;
 import me.jodfedlet.thewine.modules.customer.service.CustomerService;
