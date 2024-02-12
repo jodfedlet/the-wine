@@ -2,11 +2,12 @@ package me.jodfedlet.thewine.modules.customer.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 import me.jodfedlet.thewine.shared.AbstractEntity;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
-@Builder
+@SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity

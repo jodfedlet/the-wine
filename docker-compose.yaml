@@ -1,0 +1,33 @@
+version: "3.9"
+services:
+  postgres:
+    image: postgres:alpine
+    #restart: always
+    container_name: thewine
+    ports:
+      - "5432:5432"
+    networks:
+      thewine-network:
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: thewine-db
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    environment:
+      PGADMIN_DEFAULT_EMAIL: support@thewine.com
+      PGADMIN_DEFAULT_PASSWORD: thewine
+    ports:
+      - "5050:80"
+    depends_on:
+      - postgres
+    networks:
+      thewine-network:
+
+networks:
+  thewine-network:
+volumes:
+  pgdata: {}
