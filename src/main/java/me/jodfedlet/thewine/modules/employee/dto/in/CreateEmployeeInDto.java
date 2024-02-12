@@ -3,14 +3,21 @@ package me.jodfedlet.thewine.modules.customer.dto.in;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;
 
+import java.math.BigDecimal;
+
 @Builder
-public record CreateCustomerInDto(
+public record CreateEmployeeInDto(
         String name,
 
         @JsonProperty("document_id")
         String documentId,
 
-        @JsonProperty("sell_on_credit")
-        boolean sellOnCredit
+        String email,
+
+        String password,
+
+        String role,
+
+        BigDecimal salary
 ) {
 }

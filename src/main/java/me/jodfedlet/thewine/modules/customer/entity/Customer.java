@@ -14,6 +14,10 @@ import me.jodfedlet.thewine.shared.AbstractEntity;
 @Table(name = "customers")
 public class Customer extends AbstractEntity {
     private String name;
+
+    @Column(name = "document_id")
     private String documentId;
+
+    @Column(name = "sell_on_credit")
     private boolean sellOnCredit;
 }
