@@ -4,7 +4,7 @@ package me.jodfedlet.thewine.modules.employee;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import me.jodfedlet.thewine.modules.customer.dto.in.CreateEmployeeInDto;
+import me.jodfedlet.thewine.modules.employee.dto.in.CreateEmployeeInDto;
 import me.jodfedlet.thewine.modules.employee.dto.out.EmployeeOutDto;
 import me.jodfedlet.thewine.modules.employee.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;

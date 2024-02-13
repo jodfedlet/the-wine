@@ -1,4 +1,4 @@
-package me.jodfedlet.thewine.modules.customer.dto.in;
+package me.jodfedlet.thewine.modules.employee.dto.in;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;
