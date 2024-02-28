@@ -1,6 +1,6 @@
 package me.jodfedlet.thewine.modules.employee;
 
-import me.jodfedlet.thewine.modules.customer.dto.in.CreateEmployeeInDto;
+import me.jodfedlet.thewine.modules.employee.dto.in.CreateEmployeeInDto;
 import me.jodfedlet.thewine.modules.employee.dto.out.EmployeeOutDto;
 import me.jodfedlet.thewine.modules.employee.entity.Employee;
 

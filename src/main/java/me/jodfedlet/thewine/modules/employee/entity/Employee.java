@@ -35,10 +35,4 @@ public class Employee extends AbstractEntity {
 
     @Column(name = "is_active")
     private boolean isActive;
-
-    @Column(name = "created_at")
-    private Instant createdAt;
-
-    @Column(name = "updated_at")
-    private Instant updatedAt;
 }

@@ -8,6 +8,8 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 import me.jodfedlet.thewine.modules.product.model.enums.ProductCategory;
 import me.jodfedlet.thewine.shared.AbstractEntity;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 
 import java.math.BigDecimal;
 import java.time.Instant;
@@ -35,12 +37,7 @@ public class Product extends AbstractEntity {
     @Column(name = "is_active")
     private boolean isActive;
 
-    @ElementCollection
-    private Map<String, Object> metadata;
+    //@JdbcTypeCode(SqlTypes.JSON)
+    //private Map<String, Object> metadata;
 
-    @Column(name = "created_at")
-    private Instant createdAt;
-
-    @Column(name = "updated_at")
-    private Instant updatedAt;
 }
