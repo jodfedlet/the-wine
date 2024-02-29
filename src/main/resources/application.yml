@@ -4,7 +4,6 @@ spring:
         url: ${DATABASE_URL:jdbc:postgresql://postgres:5432/thewine-db}
         username: ${DATABASE_USERNAME:postgres}
         password: ${DATABASE_PASSWORD:password}
-        driver-class-name: ${DATABASE_DRIVER_CLASS_NAME:org.postgresql.Driver}
     jpa:
         hibernate:
           ddl-auto: create
