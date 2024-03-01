@@ -2,6 +2,7 @@ package me.jodfedlet.thewine.modules.employee.dto.out;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;
+import me.jodfedlet.thewine.modules.employee.model.EmployeeRole;
 
 import java.math.BigDecimal;
 import java.time.Instant;
@@ -16,7 +17,7 @@ public record EmployeeOutDto(
 
         String email,
 
-        String role,
+        EmployeeRole role,
 
         BigDecimal salary,
 

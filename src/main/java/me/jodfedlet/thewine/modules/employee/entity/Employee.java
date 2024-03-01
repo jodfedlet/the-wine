@@ -1,17 +1,19 @@
 package me.jodfedlet.thewine.modules.employee.entity;
 
+import java.math.BigDecimal;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
+import me.jodfedlet.thewine.modules.employee.model.EmployeeRole;
 import me.jodfedlet.thewine.shared.AbstractEntity;
-
-import java.math.BigDecimal;
-import java.time.Instant;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
@@ -31,7 +33,8 @@ public class Employee extends AbstractEntity {
 
     private String password;
 
-    private String role;
+    @Enumerated(EnumType.STRING)
+    private EmployeeRole role;
 
     @Column(name = "is_active")
     private boolean isActive;
