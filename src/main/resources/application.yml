@@ -17,3 +17,11 @@ springdoc:
 server:
   error:
     include-stacktrace: never
+
+api:
+  issuer:
+    name: ${ISSUER_NAME:thewine-api}
+  security:
+    jwt:
+      secret: ${JWT_SECRET:secret}
+      expiration: ${JWT_EXPIRATION:86400000}

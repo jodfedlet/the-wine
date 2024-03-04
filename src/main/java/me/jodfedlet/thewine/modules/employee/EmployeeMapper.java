@@ -17,6 +17,7 @@ public class EmployeeMapper {
     }
 
     public static EmployeeOutDto toDto(Employee entity) {
+        System.out.println("entity to mapped  = " + entity);
         return EmployeeOutDto.builder()
                 .id(entity.getId())
                 .name(entity.getName())
