@@ -7,6 +7,7 @@ import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.stereotype.Service;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
@@ -15,6 +16,7 @@ import me.jodfedlet.thewine.modules.employee.entity.Employee;
 import me.jodfedlet.thewine.shared.TokenServiceInterface;
 import me.jodfedlet.thewine.shared.exceptions.UnauthenticatedResourceException;
 
+@Service
 public class JwtServiceImplementation implements TokenServiceInterface {
 
     @Value("${api.security.jwt.secret}")
