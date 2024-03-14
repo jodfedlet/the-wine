@@ -25,6 +25,9 @@ public class AuthService {
     }
 
     public AuthenticateResDto authenticate(AuthenticateReqDto authDto) {
+        System.out.println("/".repeat(150));
+        System.out.println(authDto.email());
+        
         UsernamePasswordAuthenticationToken authenticationRequest = new UsernamePasswordAuthenticationToken(authDto.email(), authDto.password());
         authenticationManager.authenticate(authenticationRequest);
 

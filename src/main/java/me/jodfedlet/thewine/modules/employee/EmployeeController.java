@@ -23,7 +23,7 @@ import me.jodfedlet.thewine.modules.employee.service.EmployeeService;
 
 @Tag(name = "employees", description = "The employee implementation.")
 @RestController
-@RequestMapping("/employees")
+@RequestMapping("/v1/employees")
 public class EmployeeController {
 
     @Autowired
