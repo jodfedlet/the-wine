@@ -44,15 +44,14 @@ public class JwtServiceImplementation implements TokenServiceInterface {
     }
 
     @Override
-    public boolean validateToken(String token) {
+    public String validateToken(String token) {
         try {
             Algorithm algorithm = Algorithm.HMAC256(secretKey);
-            JWT.require(algorithm)
+            return JWT.require(algorithm)
                     .withIssuer(issuer)
                     .build()
                     .verify(token)
                     .getSubject();
-            return true;
         } catch (Exception e) {
             throw new UnauthenticatedResourceException("Invalid user token or it s expired, please retry.");
         }
