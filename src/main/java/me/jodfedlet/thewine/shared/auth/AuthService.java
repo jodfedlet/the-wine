@@ -30,13 +30,14 @@ public class AuthService implements UserDetailsService {
     
 
     public AuthenticateResDto authenticate(AuthenticateReqDto authDto) {
-        System.out.println("/".repeat(150));
-        System.out.println(authDto.email());
         
+    System.out.println("authDto: " + authDto.email() + " " + authDto.password());
         UsernamePasswordAuthenticationToken authenticationRequest = new UsernamePasswordAuthenticationToken(authDto.email(), authDto.password());
         authenticationManager.authenticate(authenticationRequest);
 
         String token = tokenService.generateToken(authDto.email());
+
+        System.out.println("token: " + token);
 
         Employee authUser = tokenService.retrieveAuthUser(token);
 
