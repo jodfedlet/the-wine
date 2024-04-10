@@ -33,7 +33,6 @@ public class EmployeeController {
     @Operation(summary = "Create a new employee")
     @ApiResponse(responseCode = "201", description = "employee created")
     public ResponseEntity<EmployeeOutDto> create(@RequestBody CreateEmployeeInDto dto) {
-        System.out.println("$".repeat(150) );
         return ResponseEntity.ok(employeeService.create(dto));
     }
 

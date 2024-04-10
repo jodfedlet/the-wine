@@ -49,8 +49,6 @@ public class SecurityConfig {
 		.authorizeHttpRequests(authorize -> authorize
 			.requestMatchers(GUEST_ROUTES_LIST).permitAll()
 			.requestMatchers(HttpMethod.GET, "/").permitAll()
-			.requestMatchers(HttpMethod.POST, "/v1/employees/**").permitAll()
-			.requestMatchers(HttpMethod.GET, "/v1/employees/**").permitAll()
 			.anyRequest().authenticated()
 		)
 		.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);

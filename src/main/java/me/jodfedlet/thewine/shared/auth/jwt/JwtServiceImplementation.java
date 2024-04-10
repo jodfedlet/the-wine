@@ -20,10 +20,10 @@ import me.jodfedlet.thewine.shared.exceptions.UnauthenticatedResourceException;
 public class JwtServiceImplementation implements TokenServiceInterface {
 
     @Value("${api.security.jwt.secret}")
-    private static String secretKey;
+    private String secretKey;
 
     @Value("${api.issuer.name}")
-    private static String issuer;
+    private String issuer;
 
     @Override
     public String generateToken(String userEmail) {
@@ -58,7 +58,7 @@ public class JwtServiceImplementation implements TokenServiceInterface {
     }
 
     @Override
-    public Employee retrieveAuthUser(String token) {
+    public Employee retrieveAuthUser() {
          if (SecurityContextHolder.getContext().getAuthentication() == null) {
             throw new UnauthenticatedResourceException("Invalid user token or it s expired, please retry.");
         }
