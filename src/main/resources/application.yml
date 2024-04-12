@@ -8,7 +8,7 @@ spring:
         hibernate:
           ddl-auto: create
           show-sql: true
-          dialect: org.hibernate.dialect.PostgreSQLDialect
+          dialect: ${DATABASE_DIALECT:org.hibernate.dialect.PostgreSQLDialect}
 
    # flyway:
        # enabled: true
