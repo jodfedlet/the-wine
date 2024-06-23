@@ -3,6 +3,7 @@ package me.jodfedlet.thewine.modules.employee;
 
 import java.util.List;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -21,6 +22,7 @@ import me.jodfedlet.thewine.modules.employee.dto.in.CreateEmployeeInDto;
 import me.jodfedlet.thewine.modules.employee.dto.out.EmployeeOutDto;
 import me.jodfedlet.thewine.modules.employee.service.EmployeeService;
 
+@SecurityRequirement(name = "bearerAuth")
 @Tag(name = "employees", description = "The employee implementation.")
 @RestController
 @RequestMapping("/v1/employees")

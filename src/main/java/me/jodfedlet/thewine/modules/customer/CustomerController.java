@@ -3,6 +3,7 @@ package me.jodfedlet.thewine.modules.customer;
 
 import java.util.List;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -21,6 +22,7 @@ import me.jodfedlet.thewine.modules.customer.dto.in.CreateCustomerInDto;
 import me.jodfedlet.thewine.modules.customer.dto.out.CustomerOutDto;
 import me.jodfedlet.thewine.modules.customer.service.CustomerService;
 
+@SecurityRequirement(name = "bearerAuth")
 @Tag(name = "customers", description = "The customer implementation")
 @RestController
 @RequestMapping("/v1/customers")
