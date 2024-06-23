@@ -1,5 +1,10 @@
 package me.jodfedlet.thewine.modules.customer.service;
 
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.stereotype.Service;
+
 import lombok.RequiredArgsConstructor;
 import me.jodfedlet.thewine.modules.customer.CustomerMapper;
 import me.jodfedlet.thewine.modules.customer.dto.in.CreateCustomerInDto;
@@ -8,10 +13,6 @@ import me.jodfedlet.thewine.modules.customer.entity.Customer;
 import me.jodfedlet.thewine.modules.customer.repository.CustomerRepository;
 import me.jodfedlet.thewine.shared.exceptions.NotFoundException;
 import me.jodfedlet.thewine.shared.exceptions.ResourceExistsException;
-import org.springframework.stereotype.Service;
-
-import java.util.List;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
