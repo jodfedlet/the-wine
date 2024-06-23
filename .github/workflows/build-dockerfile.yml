@@ -11,5 +11,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Build the Docker image
+      - name: CI
         run: docker build . --file Dockerfile --tag thewine --build-arg JAR_FILE=target/*.jar

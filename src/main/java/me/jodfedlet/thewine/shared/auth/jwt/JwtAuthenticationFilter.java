@@ -2,6 +2,7 @@ package me.jodfedlet.thewine.shared.auth.jwt;
 
 import java.io.IOException;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -17,15 +18,13 @@ import me.jodfedlet.thewine.modules.employee.repository.EmployeeRepository;
 import me.jodfedlet.thewine.shared.TokenServiceInterface;
 import me.jodfedlet.thewine.shared.exceptions.NotFoundException;
 
+@RequiredArgsConstructor
 @Component
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
-    @Autowired
-    private EmployeeRepository userRepository;
+    private final EmployeeRepository userRepository;
 
-    @Autowired
-    private TokenServiceInterface jwtService;
+    private final TokenServiceInterface jwtService;
 
-    
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         String token = this.retrieveToken(request);
