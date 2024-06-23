@@ -1,19 +1,27 @@
-FROM ubuntu:22.04 AS build
+# Stage 1: Build the application
+FROM maven:3.9.5-amazoncorretto-21 AS build
 
-RUN apt-get update
-RUN apt-get install openjdk-17-jdk -y
-COPY . .
+# Set the working directory inside the container
+WORKDIR /app
 
-RUN apt-get install maven -y
-RUN mvn clean install -DskipTests
+# Copy the pom.xml file and the source code to the working directory
+COPY pom.xml .
+COPY src ./src
 
-FROM openjdk:17-jdk-slim
+# Package the application
+RUN mvn clean package -DskipTests
 
+# Stage 2: Run the application
+FROM openjdk:21-jdk-slim
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy the packaged jar file from the previous stage
+COPY --from=build /app/target/*.jar app.jar
+
+# Expose the application port (adjust as necessary)
 EXPOSE 8080
 
-COPY --from=build /target/*.jar app.jar
-
-ENTRYPOINT [ "java", "-jar", "app.jar" ]
-
-
-
+# Run the application
+ENTRYPOINT ["java", "-jar", "app.jar"]

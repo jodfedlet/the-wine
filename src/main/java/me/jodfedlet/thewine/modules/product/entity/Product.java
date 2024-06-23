@@ -1,7 +1,17 @@
 package me.jodfedlet.thewine.modules.product.entity;
 
+import java.math.BigDecimal;
+import java.util.HashSet;
+import java.util.Set;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.*;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -11,14 +21,6 @@ import me.jodfedlet.thewine.modules.order.entity.OrderItem;
 import me.jodfedlet.thewine.modules.product.model.enums.ProductCategory;
 import me.jodfedlet.thewine.shared.AbstractEntity;
 import me.jodfedlet.thewine.shared.exceptions.BadRequestException;
-import org.hibernate.annotations.JdbcTypeCode;
-import org.hibernate.type.SqlTypes;
-
-import java.math.BigDecimal;
-import java.time.Instant;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
